@@ -35,14 +35,14 @@ public class ItemServiceTest {
         var mockRepository = Mockito.mock(ItemRepository.class);
         var itemService = new ItemService(mockRepository);
         Mockito.when(mockRepository.getItems()).thenReturn(new ArrayList<>(){{
-            // add(new Item(5, "Shirt"));
+            add(new Item(5, "Shirt"));
         }});
 
         // when
         var result = itemService.getItems();
 
         // then
-        Assertions.assertEquals(new ArrayList<>(), result);
+        Assertions.assertEquals(new ArrayList<>(){{ add(new Item(5, "Shirt")); }}, result);
         Mockito.verify(mockRepository, Mockito.times(1)).getItems();
         // Mockito.verifyNoInteractions(mockRepository);
         Mockito.verifyNoMoreInteractions(mockRepository);
