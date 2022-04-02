@@ -17,4 +17,9 @@ public class ItemRepository {
         return items;
     }
     public void addItem(Item item) { this.items.add(item); }
+
+
+    public static int add(int i, int j){
+        return i + j;
+    }
 }
